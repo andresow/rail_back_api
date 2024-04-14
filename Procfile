@@ -1,1 +1,1 @@
-web: gunicorn fibro_crud_api.wsgi
+web: python manage.py collectstatic && gunicorn fibro_crud_api.wsgi
