@@ -1,0 +1,1 @@
+web: gunicorn fibro_crud_api.wsgi
