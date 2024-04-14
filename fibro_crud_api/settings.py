@@ -83,8 +83,12 @@ WSGI_APPLICATION = 'fibro_crud_api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'fibro',
+        'USER': 'andres',
+        'PASSWORD': '24603759',
+        'HOST':'localhost',
+        'PORT':''
     }
 }
 
