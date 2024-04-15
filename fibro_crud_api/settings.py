@@ -85,7 +85,14 @@ WSGI_APPLICATION = 'fibro_crud_api.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default="postgresql://postgres:OfBVCdMxwaRzPtSDGxurSlGwWCWPMriz@postgres.railway.internal:5432/railway")
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'OfBVCdMxwaRzPtSDGxurSlGwWCWPMriz',
+        'HOST':'roundhouse.proxy.rlwy.net',
+        'PORT':'57176'
+    }
 }
 
 
