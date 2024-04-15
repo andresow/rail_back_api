@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 import os
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -85,14 +85,7 @@ WSGI_APPLICATION = 'fibro_crud_api.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'fibro',
-        'USER': 'andres',
-        'PASSWORD': '24603759',
-        'HOST':'localhost',
-        'PORT':''
-    }
+    'default': dj_database_url.config(default="postgresql://postgres:OfBVCdMxwaRzPtSDGxurSlGwWCWPMriz@postgres.railway.internal:5432/railway")
 }
 
 
