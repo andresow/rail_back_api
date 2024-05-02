@@ -39,5 +39,6 @@ class AuthTokenSerializer(serializers.Serializer):
         if not user:
             raise serializers.ValidationError('No se pudo autenticar', code='authorization')
         
-        data['user'] = user
+        data['user'] = {'token':user,
+                        'id':user.id}
         return data
