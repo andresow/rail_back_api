@@ -38,7 +38,8 @@ class AuthTokenSerializer(serializers.Serializer):
 
         if not user:
             raise serializers.ValidationError('No se pudo autenticar el usuario', code='authorization')
+        current_user = self.context.get('request').user
         
         data['user'] = {'token':user,
-                        'id':user.id}
+                        'id':current_user.id}
         return data
