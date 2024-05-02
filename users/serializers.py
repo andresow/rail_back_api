@@ -1,6 +1,5 @@
 from django.contrib.auth import get_user_model, authenticate
 from rest_framework import serializers
-from rest_framework.response import Response
 
 class UserSerializer(serializers.ModelSerializer):
 
@@ -23,12 +22,7 @@ class UserSerializer(serializers.ModelSerializer):
             user.save()
 
         return user
-    def list(self, request):
-        # Note the use of `get_queryset()` instead of `self.queryset`
-        queryset = self.get_queryset()
-        serializer = UserSerializer(queryset, many=True)
-        return Response(serializer.data)
-       
+    
 class AuthTokenSerializer(serializers.Serializer):
     email = serializers.EmailField()
     password = serializers.CharField(style={'input_type':'password'})
@@ -47,4 +41,3 @@ class AuthTokenSerializer(serializers.Serializer):
         
         data['user'] = user
         return data
-        
